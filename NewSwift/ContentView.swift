@@ -79,8 +79,8 @@ struct ContentView: View {
 
 struct Circles: View {
     
-    var color: Color
-    var opacity: Double
+    let color: Color
+    let opacity: Double
     
     var body: some View {
         
@@ -91,7 +91,6 @@ struct Circles: View {
                 .opacity(opacity)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(.white, lineWidth: 3))
-                .shadow(color: .black, radius: 9)
         }
     }
     
