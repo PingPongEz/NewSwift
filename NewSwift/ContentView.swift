@@ -33,31 +33,14 @@ struct ContentView: View {
                     Circles(color: .green, opacity: green)
                 }
                 .padding()
-                button
+                ButtonSwitch(action: switchColor, title: text)
                 .padding()
             }
         }
-        
     }
     
-    private var button: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: 150, height: 50)
-                .cornerRadius(18)
-                .foregroundColor(.blue)
-                .overlay(RoundedRectangle(cornerRadius: 16).stroke(.white, lineWidth: 3))
-            Button(action: { switchColor(currentColor) } ) {
-                Text(text).minimumScaleFactor(0.3).lineLimit(1)
-                    .frame(width: 140, height: 50)
-                    .font(.title)
-                    .foregroundColor(.black)
-            }
-        }
-    }
-    
-    private func switchColor(_ color: ColorCases) {
-        switch color {
+    private func switchColor() -> Void {
+        switch currentColor {
         case .red:
             red = 0.2
             yellow = 1
@@ -93,7 +76,6 @@ struct Circles: View {
                 .overlay(Circle().stroke(.white, lineWidth: 3))
         }
     }
-    
 }
 
 
